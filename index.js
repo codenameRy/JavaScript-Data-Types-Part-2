@@ -52,3 +52,58 @@ let user = {
 
 alert( count(user) ); // 2
 
+//Destructuring Assignment
+
+//Challenge 1 - Destructuring assignment
+
+// We have an object:
+
+// let user = {
+//   name: "John",
+//   years: 30
+// };
+// Write the destructuring assignment that reads:
+
+// name property into the variable name.
+// years property into the variable age.
+// isAdmin property into the variable isAdmin (false, if no such property)
+
+let user2 = { name: "John", years: 30 };
+
+// your code to the left side:
+// ... = user
+
+let {name, years: age, isAdmin = false } = user2
+
+alert( name ); // John
+alert( age ); // 30
+alert( isAdmin ); // false
+
+//Challenge 2 - The maximal salary
+
+// Create the function topSalary(salaries) that returns the name of the top-paid person.
+
+// If salaries is empty, it should return null.
+// If there are multiple top-paid persons, return any of them.
+// P.S. Use Object.entries and destructuring to iterate over key/value pairs.
+
+function topSalary(salaries) {
+  let max = 0;
+  let maxName = null;
+
+  for (let [name, salary] of Object.entries(salaries)) {
+    if (max < salary) {
+      max = salary;
+      maxName = name;
+    }
+  }
+  return maxName;
+}
+
+let salaries3 = {
+  "John": 100,
+  "Pete": 300,
+  "Mary": 8000
+};
+
+alert(topSalary(salaries3))
